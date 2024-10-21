@@ -1,12 +1,9 @@
-package com.comcast.crm.basetest;
+package supplychainmanagement.qual.basetest;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
-import org.openqa.selenium.edge.EdgeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.firefox.FirefoxOptions;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterSuite;
@@ -15,14 +12,13 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Parameters;
 
-import com.comcast.crm.generic.fileutility.ExcelUtility;
-import com.comcast.crm.generic.fileutility.FileUtility;
-import com.comcast.crm.genric.webdriverutility.JavaUtility;
-import com.comcast.crm.genric.webdriverutility.WebDriverUtility;
-import com.comcast.crm.objectrepository.homepage.HomePage;
-import com.comcast.crm.objectrepository.loginpage.LoginPage;
-
-import comcast.crm.generic.databaseutility.DataBaseUtility;
+import supplychainmanagement.qual.generic.databaseutility.DataBaseUtility;
+import supplychainmanagement.qual.generic.fileutility.ExcelUtility;
+import supplychainmanagement.qual.generic.fileutility.FileUtility;
+import supplychainmanagement.qual.genric.webdriverutility.JavaUtility;
+import supplychainmanagement.qual.genric.webdriverutility.WebDriverUtility;
+import supplychainmanagement.qual.objectrepository.homepage.HomePage;
+import supplychainmanagement.qual.objectrepository.loginpage.LoginPage;
 
 public class BaseClass {
 
@@ -65,14 +61,14 @@ public class BaseClass {
 		String password = fLib.getDataFromPropertiesFile("password");
 		LoginPage lp = new LoginPage(driver);
 		wlib.get(driver, url);
-		lp.loginToApp(driver, username, password);
+		wlib.maximize(driver);
+		wlib.waitForPageToLoad(driver);
 	}
 
 	@AfterMethod(groups = { "smoke", "regression" })
 	public void logoutFromApp() {
 		System.out.println("Logout the App ");
 		HomePage hp = new HomePage(driver);
-		hp.signOut();
 	}
 
 	@AfterClass(groups = { "smoke", "regression" })
@@ -85,8 +81,6 @@ public class BaseClass {
 	public void closeDbConnection() {
 		System.out.println("<==close to DB, Report BackUp==>");
 		dbLib.closeDbConnection();
-
-//		report.flush();
 	}
 
 }

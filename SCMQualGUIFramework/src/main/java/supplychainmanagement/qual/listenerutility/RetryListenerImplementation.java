@@ -1,4 +1,4 @@
-package com.comcast.crm.listenerutility;
+package supplychainmanagement.qual.listenerutility;
 
 import org.testng.IRetryAnalyzer;
 import org.testng.ITestResult;

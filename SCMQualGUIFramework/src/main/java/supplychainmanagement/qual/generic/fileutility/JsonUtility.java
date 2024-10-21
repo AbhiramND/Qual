@@ -1,4 +1,4 @@
-package com.comcast.crm.generic.fileutility;
+package supplychainmanagement.qual.generic.fileutility;
 
 import java.io.FileReader;
 

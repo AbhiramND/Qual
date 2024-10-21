@@ -1,4 +1,4 @@
-package com.comcast.crm.genric.webdriverutility;
+package supplychainmanagement.qual.genric.webdriverutility;
 
 import java.util.Date;
 

@@ -1,4 +1,4 @@
-package comcast.crm.generic.databaseutility;
+package supplychainmanagement.qual.generic.databaseutility;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
